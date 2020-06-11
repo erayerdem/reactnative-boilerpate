@@ -9,6 +9,7 @@ export default function Basket() {
     <>
       <SafeAreaView>
         <Text>Hello From Basket</Text>
+          <Text ></Text>
       </SafeAreaView>
     </>
   );

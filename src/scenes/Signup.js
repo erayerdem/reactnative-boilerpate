@@ -6,7 +6,8 @@ export default function Signup() {
   const [namesurname, setnamesurname] = useState('');
   return (
     <SafeAreaView>
-      <View />
+     <Text > Hellu dude</Text>
+
     </SafeAreaView>
   );
 }

@@ -9,6 +9,7 @@ export default function Categories() {
     <>
       <SafeAreaView>
         <Text>Hello From Categories</Text>
+          <Text>Hello world</Text>
       </SafeAreaView>
     </>
   );
