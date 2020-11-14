@@ -1,24 +1,24 @@
 import * as React from 'react';
-import { Text, View ,StyleSheet} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../scenes/Home';
-import Categories from '../scenes/Categories'
-import Basket from '../scenes/Basket'
-import Profile from '../scenes/Profile'
-import Favorities from '../scenes/Favorities'
-import { Search , Heart ,HomeR, ShoppingBag, User } from '../components/icon/navigation';
+import Categories from '../scenes/Categories';
+import Basket from '../scenes/Basket';
+import Profile from '../scenes/Profile';
+import Favorities from '../scenes/Favorities';
+import {Heart, HomeR, Search, ShoppingBag, User} from '../components/icon/navigation';
 
 function IconWithBadge({isfocused}) {
-  
+
   return (
-    
+
     <View style={{ width: 24, height: 24, margin: 5 }}>
-      <ShoppingBag color = { isfocused ? 'tomato' : "gray"}></ShoppingBag>
-      {2 > 0 && (
+      <ShoppingBag color = {isfocused ? 'tomato' : 'gray'}/>
+      {2> 0 && (
         <View
           style={{
-            
+
             position: 'absolute',
             right: -6,
             top: -3,
@@ -46,46 +46,46 @@ export default function App() {
     <NavigationContainer initialRouteName="Home" >
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused }) => {
            let comp;
             switch (route.name) {
             case "Home":
-              comp= <HomeR color = { focused ? 'tomato' : "gray"}></HomeR>
-              break;
+              return <HomeR color = {focused ? 'tomato' : 'gray'}/>
+
             case "Categories":
-              comp=  <Search color = { focused ? 'tomato' : "gray"}></Search>
-              break;
+              return   <Search color = {focused ? 'tomato' : 'gray'}/>
+
             case "Basket":
-              comp=  <IconWithBadge isfocused={focused}></IconWithBadge>
-              break;
+              return  <IconWithBadge isfocused={focused}/>
+
             case "Favorities":
-              comp=  <Heart color = { focused ? 'tomato' : "gray"}></Heart>
-              break;
+              return  <Heart color = {focused ? 'tomato' : 'gray'}/>
+
             case "Profile":
-              comp=  <User color = { focused ? 'tomato' : "gray"}></User>
-              break;
+              return  <User color = {focused ? 'tomato' : 'gray'}/>
+
            }
-   
-            return comp;
+
+            return;
           },
         })}
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
           labelStyle : {
-            fontSize:13
+            fontSize:14
           },
           style: {
-            marginTop:7
+            paddingTop:7
           }
         }}
       >
-        <Tab.Screen  name="Home"  options={{title:"Anasayfa" , }}  component={Home} />
+        <Tab.Screen  name="Home"  options={{title:"Anasayfa"}}  component={Home} />
         <Tab.Screen name="Categories" options={{title:"Kategoriler"}} component={Categories} />
         <Tab.Screen name="Basket" options={{title:"Sepetim"}} component={Basket} />
         <Tab.Screen name="Favorities" options={{title:"Favorilerim"}} component={Favorities} />
         <Tab.Screen name="Profile" options={{title:"Hesabım"}} component={Profile} />
-        
+
       </Tab.Navigator>
     </NavigationContainer>
   );
